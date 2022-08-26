@@ -2,6 +2,12 @@
 
 from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
+import tensorflow as tf
+
+def get_model():
+    model = tf.keras.models.load_model(r'E:\models\geo-guess-model.h5')
+    return model
+
 
 
 def get_map():
