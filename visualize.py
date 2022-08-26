@@ -8,6 +8,11 @@ import tensorflow as tf
 import numpy as np
 
 
+LAT_MAX = 48.99894
+LAT_MIN = 24.36335
+LON_MAX = -66.84510
+LON_MIN = -125.12020
+
 
 def get_model():
     model = tf.keras.models.load_model(r'E:\models\geo-guess-model.h5')
@@ -47,6 +52,17 @@ def get_map():
     m.drawstates(color='gray')
 
     return m
+
+
+def scale_coords(lat,lon):
+
+
+
+def main():
+    model = get_model()
+    images,coords = get_demo_images()
+    m = get_map()
+
 '''
 m = get_map()
 nylat,nylon = 40.7,-74
