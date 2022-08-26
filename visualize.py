@@ -21,10 +21,16 @@ def get_demo_images():
     demo_lines = coord_lines[-50:][::-5]
 
     img_arr = []
+    coords = []
     for line in demo_lines:
         im_path = line.split(',')[0]
         img = cv2.resize(cv2.imread(im_path),(128,128))
         img_arr.append(np.array(img)/255.0)
+
+        lat,lon = line.split(',')[1], line.split(',')[2]
+        coords.append([lat,lon])
+
+    return img_arr, coords
         
 
 
