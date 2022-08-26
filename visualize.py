@@ -1,13 +1,31 @@
 # Take trained model and display the difference between test points and predictions
 
+
+import cv2
 from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 import tensorflow as tf
+import numpy as np
+
+
 
 def get_model():
     model = tf.keras.models.load_model(r'E:\models\geo-guess-model.h5')
     return model
 
+
+def get_demo_images():
+    cpath = r'E:\DATA\GEO-GUESS\aug-256\coordinates\coordinates_aug.txt'
+    coord_lines = open(cpath).readlines()
+
+    demo_lines = coord_lines[-50:][::-5]
+
+    img_arr = []
+    for line in demo_lines:
+        im_path = line.split(',')[0]
+        img = cv2.resize(cv2.imread(im_path),(128,128))
+        img_arr.append(np.array(img)/255.0)
+        
 
 
 def get_map():
@@ -23,10 +41,13 @@ def get_map():
     m.drawstates(color='gray')
 
     return m
-
+'''
 m = get_map()
 nylat,nylon = 40.7,-74
 
 xpt,ypt = m(nylat,nylon)
 m.plot(xpt,ypt,'co')
 plt.show()
+'''
+
+get_demo_images()
