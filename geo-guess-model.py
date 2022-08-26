@@ -19,7 +19,7 @@ val_split = 0.1
 TARGET_SIZE = (128, 128)
 INPUT_SHAPE = (TARGET_SIZE[0], TARGET_SIZE[1], 3)
 BATCH_SIZE = 32
-EPOCHS = 50
+EPOCHS = 4
 SHUFFLE_BUFFER_SIZE = 500
 
 
@@ -75,3 +75,5 @@ train_dataset, test_dataset = load_data()
 model = get_model()
 
 model.fit(train_dataset, validation_data = test_dataset, epochs=EPOCHS)
+
+model.save(r'E:\models\geo-guess-model.h5')
