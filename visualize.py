@@ -55,7 +55,10 @@ def get_map():
 
 
 def scale_coords(lat,lon):
+    s_lat = ((LAT_MAX-LAT_MIN) * lat) + LAT_MIN
+    s_lon = ((LON_MAX-LON_MIN) * lon) + LON_MIN
 
+    return s_lat,s_lon
 
 
 def main():
