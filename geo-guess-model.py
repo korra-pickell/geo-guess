@@ -19,7 +19,7 @@ val_split = 0.1
 TARGET_SIZE = (128, 128)
 INPUT_SHAPE = (TARGET_SIZE[0], TARGET_SIZE[1], 3)
 BATCH_SIZE = 32
-EPOCHS = 4
+EPOCHS = 5
 SHUFFLE_BUFFER_SIZE = 500
 
 
@@ -62,7 +62,9 @@ def get_model():
     model.add(Dense(32,activation='relu',kernel_initializer='he_uniform'))
     #model.add(Dropout(0.1))
 
-    model.add(Dense(16,activation='relu',kernel_initializer='he_uniform'))
+    model.add(Dense(32,activation='relu',kernel_initializer='he_uniform'))
+
+    model.add(Dense(32,activation='relu',kernel_initializer='he_uniform'))
 
     model.add(Dense(2, activation='sigmoid'))
     

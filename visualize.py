@@ -64,7 +64,18 @@ def scale_coords(lat,lon):
 def main():
     model = get_model()
     images,coords = get_demo_images()
+    for p in coords:
+        print(p)
     m = get_map()
+    pred_coords = model(np.array(images))
+    scaled_pred = []
+    for pair in pred_coords:
+        pair = pair.numpy()
+        scaled_pred.append([scale_coords(pair[0],pair[1])])
+
+    for p in scaled_pred:
+        print(p)
+    
 
 '''
 m = get_map()
@@ -75,4 +86,5 @@ m.plot(xpt,ypt,'co')
 plt.show()
 '''
 
-get_demo_images()
+if __name__ == '__main__':
+    main()
