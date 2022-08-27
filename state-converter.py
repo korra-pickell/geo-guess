@@ -25,3 +25,15 @@ def get_states():
         dfile.write(line.replace('\n','')+','+current_state+'\n')
         dfile.close()
     bar.finish()
+
+
+def build_folders():
+    c_path = r'E:\DATA\GEO-GUESS\states\coords_states.txt'
+    coord_lines = open(c_path).readlines()
+    for line in coord_lines:
+        parts = line.split(',')
+        im_path,state = parts[0],parts[-1]
+        print(im_path,state)
+        s = input('...')
+
+build_folders()
