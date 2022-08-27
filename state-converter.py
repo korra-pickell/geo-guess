@@ -34,7 +34,9 @@ def check_folder_exists(state):
 def build_folders():
     c_path = r'E:\DATA\GEO-GUESS\states\coords_states.txt'
     coord_lines = open(c_path).readlines()
+    bar = Bar(' PROCESSING ', max = len(coord_lines), suffix='%(percent)d%%')
     for line in coord_lines:
+        bar.next()
         parts = line.split(',')
         im_path_src,state = parts[0],parts[-1].strip('\n')
         img_name = parts[0].split('\\')[-1]
@@ -48,6 +50,6 @@ def build_folders():
                 shutil.copy(im_path_src,im_path_tar)
             except OSError:
                 print("couldn't make folder "+state)
-        s = input('...')
+    bar.finish()
 
 build_folders()
