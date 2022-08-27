@@ -1,4 +1,4 @@
-import time
+import time, shutil
 from geopy.geocoders import Nominatim
 from progress.bar import Bar
 
