@@ -52,4 +52,14 @@ def build_folders():
                 print("couldn't make folder "+state)
     bar.finish()
 
-build_folders()
+
+def count_items():
+    root = r'E:\DATA\GEO-GUESS\states\Image Classes'
+    lens = []
+    for file in os.listdir(root):
+        d = os.path.join(root, file)
+        if os.path.isdir(d):
+            lens.append(((len(os.listdir(d))),file))
+    lens.sort()
+    print(lens)
+count_items()
