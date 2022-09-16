@@ -9,10 +9,10 @@ import time
 data_dir = r'E:\DATA\GEO-GUESS\states\IM100'
 
 val_split = 0.1
-TARGET_SIZE = (128, 128)
+TARGET_SIZE = (256, 256)
 INPUT_SHAPE = (TARGET_SIZE[0], TARGET_SIZE[1], 3)
-BATCH_SIZE = 256
-EPOCHS = 5
+BATCH_SIZE = 100
+EPOCHS = 50
 
 # Image Loading Needs Pillow Library
 # Define the parameters of the Generator
@@ -20,7 +20,7 @@ datagen = ImageDataGenerator(rescale=1.0/255,
                              validation_split=val_split,
                              vertical_flip=False,
                              horizontal_flip=True,
-                             rotation_range=180)
+                             rotation_range=0)
 
 # ImageDataGenerator one hot encodes. Model needs 'categorical_crossentropy' loss and softmax in output layer
 
